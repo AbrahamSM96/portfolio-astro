@@ -1,0 +1,98 @@
+---
+import { Image } from 'astro:assets';
+import astroIcon from '../assets/icons/astro.svg';
+import bashIcon from '../assets/icons/bash.svg';
+import css3Icon from '../assets/icons/CSS3.svg';
+import gitIcon from '../assets/icons/git.svg';
+import html5Icon from '../assets/icons/HTML5.svg';
+import javaScriptIcon from '../assets/icons/javaScript.svg';
+import mysqlIcon from '../assets/icons/mysql.svg';
+import nextIcon from '../assets/icons/next.svg';
+import nodejsIcon from '../assets/icons/nodejs.svg';
+import reactIcon from '../assets/icons/react.svg';
+import supabaseIcon from '../assets/icons/supabase.svg';
+import tailwindcssIcon from '../assets/icons/tailwindcss.svg';
+import typeScriptIcon from '../assets/icons/typeScript.svg';
+
+const technologies = [
+  { name: 'Astro', icon: astroIcon },
+  { name: 'React', icon: reactIcon },
+  { name: 'TypeScript', icon: typeScriptIcon },
+  { name: 'Tailwindcss', icon: tailwindcssIcon },
+  { name: 'Next', icon: nextIcon },
+  { name: 'Nodejs', icon: nodejsIcon },
+  { name: 'HTML5', icon: html5Icon },
+  { name: 'CSS3', icon: css3Icon },
+  { name: 'JavaScript', icon: javaScriptIcon },
+  { name: 'Git', icon: gitIcon },
+  { name: 'Supabase', icon: supabaseIcon },
+  { name: 'Mysql', icon: mysqlIcon },
+  { name: 'Bash', icon: bashIcon },
+];
+---
+
+<div class="relative w-full overflow-x-hidden py-8">
+  <div
+    class="pointer-events-none absolute inset-y-0 left-0 z-20 w-12 bg-gradient-to-r from-[var(--background)] to-transparent opacity-5"
+  >
+  </div>
+  <div
+    class="pointer-events-none absolute inset-y-0 right-0 z-20 w-12 bg-gradient-to-l from-[var(--background)] to-transparent opacity-5"
+  >
+  </div>
+
+  <div class="animate-scroll hover:animate-paused flex w-max gap-12 md:gap-20">
+    {
+      technologies.map((tech) => (
+        <div class="group flex items-center gap-2 transition-all duration-300">
+          <figure class="h-7 w-7">
+            <Image
+              src={tech.icon}
+              alt={tech.name}
+              class="h-full w-full object-contain opacity-60 transition-transform group-hover:scale-110"
+            />
+          </figure>
+          <span class="text-lg font-medium text-[var(--white-icon)]">
+            {tech.name}
+          </span>
+        </div>
+      ))
+    }
+    {
+      technologies.map((tech) => (
+        <div class="group flex items-center gap-2 transition-all duration-300">
+          <figure class="h-7 w-7">
+            <Image
+              src={tech.icon}
+              alt={tech.name}
+              class="h-full w-full object-contain opacity-60 transition-transform group-hover:scale-110"
+            />
+          </figure>
+          <span class="text-lg font-medium text-[var(--white-icon)]">
+            {tech.name}
+          </span>
+        </div>
+      ))
+    }
+  </div>
+</div>
+
+<style is:global>
+  @keyframes scroll {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+  .animate-scroll {
+    animation: scroll 100s linear infinite;
+  }
+
+  @media (min-width: 768px) {
+    .animate-scroll {
+      animation-duration: 50s;
+    }
+  }
+</style>

@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-sans: "--font-nunito", sans-serif;
+  }
+}
+
+body {
+  min-height: 100vh;
+  color: white;
+  overflow-x: hidden;
+  /* CSS gradient — visible when WebGL is unavailable */
+  background: linear-gradient(to bottom, rgb(64, 0, 76), rgb(4, 2, 8));
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+/* Hide native cursor on pointer-fine devices (custom cursor takes over) */
+@media (pointer: fine) {
+  * {
+    cursor: none !important;
+  }
+}
+
+/* Reduced-motion: disable GSAP reveals, keep static states */
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal-exp],
+  [data-reveal-card] {
+    opacity: 1 !important;
+    transform: none !important;
+    clip-path: none !important;
+  }
+}

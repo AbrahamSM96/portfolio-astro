@@ -1,0 +1,36 @@
+{
+  "extends": "./tsconfig-base.json",
+  "include": [
+    ".astro/types.d.ts",
+    "**/*",
+    "*.astro",
+    "*.ts",
+    "*.tsx",
+    "*.animation.tsx",
+    "**/*.ts",
+    "**/*.json",
+    "**/*.tsx",
+    "**/**/*.tsx",
+    "**/*.animation.ts",
+    "**/**/*.animation.ts",
+    "global.d.ts",
+    "index.d.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "coverage",
+    ".turbo",
+    "eslint.config.mjs"
+  ],
+  "compilerOptions": {
+    "ignoreDeprecations": "6.0",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    },
+    "jsx": "react-jsx",
+    "jsxImportSource": "react",
+    "types": ["astro/client", "@types/node", "vite/client"]
+  }
+}

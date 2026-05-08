@@ -1,0 +1,165 @@
+---
+
+---
+
+<section id="experience" class="px-4 py-20 md:px-8" style="content-visibility:auto;contain-intrinsic-size:0 600px">
+  <div class="mx-auto max-w-4xl">
+    <h2
+      data-reveal-exp="heading"
+      class="mb-12 text-center text-4xl font-bold text-white opacity-0 md:text-5xl"
+    >
+      My Experience
+    </h2>
+    <div class="relative">
+      <div
+        id="exp-line"
+        class="absolute bottom-0 left-8 top-0 w-px origin-top bg-purple-600/50"
+        style="transform: scaleY(0)"
+      ></div>
+      <div class="space-y-12">
+
+        <div data-reveal-exp="item" class="flex items-start opacity-0">
+          <div class="exp-bubble flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-purple-600 text-sm font-bold text-white">
+            2023
+          </div>
+          <div class="ml-8">
+            <h3 class="text-xl font-semibold">Front End Developer</h3>
+            <p class="mb-3 text-purple-400">TelevisaUnivision &mdash; Jan 2023 &ndash; Jan 2026</p>
+            <ul class="space-y-1.5 text-sm leading-relaxed text-gray-400">
+              <li>Delivered the TUDN and Univision rebranding using Next.js with SSR, significantly improving performance and Time to First Byte (TTFB).</li>
+              <li>Designed scalable frontend architecture with React, Tailwind CSS, and Zustand, reducing bundle size and improving maintainability.</li>
+              <li>Integrated GraphQL (Relay) with CMS-driven content to optimize data fetching and avoid over-fetching.</li>
+              <li>Implemented unit and E2E testing with Jest and React Testing Library, increasing release stability.</li>
+              <li>Contributed to one of the fastest sports media platforms serving users in Mexico and the US.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div data-reveal-exp="item" class="flex items-start opacity-0">
+          <div class="exp-bubble flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-purple-600 text-sm font-bold text-white">
+            2022
+          </div>
+          <div class="ml-8">
+            <h3 class="text-xl font-semibold">Front End Developer (Freelance)</h3>
+            <p class="mb-3 text-purple-400">EGOTI &mdash; Aug 2022 &ndash; Sep 2022</p>
+            <ul class="space-y-1.5 text-sm leading-relaxed text-gray-400">
+              <li>Spearheaded the rebranding of Hyundai's car configurator, improving UX, filtering logic, and 360° visualization.</li>
+              <li>Built static and SSR pages using Next.js to enhance SEO and load performance.</li>
+              <li>Managed complex state with Redux Toolkit and optimized data handling.</li>
+              <li>Styled responsive layouts using CSS Modules and Material UI.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div data-reveal-exp="item" class="flex items-start opacity-0">
+          <div class="exp-bubble flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-purple-600 text-sm font-bold text-white">
+            2021
+          </div>
+          <div class="ml-8">
+            <h3 class="text-xl font-semibold">Front End Developer</h3>
+            <p class="mb-3 text-purple-400">Televisa Digital &mdash; Jun 2021 &ndash; Dec 2022</p>
+            <ul class="space-y-1.5 text-sm leading-relaxed text-gray-400">
+              <li>Developed and maintained high-traffic platforms — TUDN, Las Estrellas, Canal 5 — using React and Next.js.</li>
+              <li>Played a key role in the TUDN rebranding and ONE TUDN unification across Mexico and the US.</li>
+              <li>Optimized SEO and frontend performance using modern JavaScript best practices and rendering strategies.</li>
+              <li>Built reusable UI components with Tailwind CSS, improving consistency and development speed.</li>
+              <li>Wrote and maintained tests with Jest to ensure production reliability.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div data-reveal-exp="item" class="flex items-start opacity-0">
+          <div class="exp-bubble flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-purple-600 text-sm font-bold text-white">
+            2020
+          </div>
+          <div class="ml-8">
+            <h3 class="text-xl font-semibold">Front End Developer</h3>
+            <p class="mb-3 text-purple-400">EGOTI &mdash; Sep 2020 &ndash; May 2021</p>
+            <ul class="space-y-1.5 text-sm leading-relaxed text-gray-400">
+              <li>Led development of a Hyundai car configurator using React and Gatsby, focused on performance and UX.</li>
+              <li>Integrated 360° and panoramic image visualization with Material UI components.</li>
+              <li>Connected frontend to GraphQL APIs, leveraging React Hooks and Context API.</li>
+              <li>Implemented local storage and basic AWS cloud integrations.</li>
+              <li>Delivered a production-ready solution for a global automotive brand.</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  import gsap from 'gsap'
+  import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
+  gsap.registerPlugin(ScrollTrigger)
+
+  const expTriggers: ScrollTrigger[] = []
+
+  function initExperience() {
+    expTriggers.forEach((t) => t.kill())
+    expTriggers.length = 0
+
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    if (reduced) {
+      document.querySelectorAll<HTMLElement>('[data-reveal-exp]').forEach((el) => {
+        el.style.opacity = '1'
+        el.style.transform = 'none'
+      })
+      const line = document.getElementById('exp-line')
+      if (line) line.style.transform = 'scaleY(1)'
+      return
+    }
+
+    const heading = document.querySelector<HTMLElement>('[data-reveal-exp="heading"]')
+    if (heading) {
+      gsap.set(heading, { opacity: 0, y: 40 })
+      expTriggers.push(
+        ScrollTrigger.create({
+          trigger: heading,
+          start: 'top 85%',
+          once: true,
+          onEnter: () => gsap.to(heading, { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' }),
+        })
+      )
+    }
+
+    const line = document.getElementById('exp-line')
+    if (line) {
+      gsap.set(line, { scaleY: 0, transformOrigin: 'top center' })
+      expTriggers.push(
+        ScrollTrigger.create({
+          trigger: '#experience',
+          start: 'top 70%',
+          end: 'bottom 30%',
+          scrub: 1.5,
+          onUpdate: (self) => gsap.set(line, { scaleY: self.progress }),
+        })
+      )
+    }
+
+    const items = gsap.utils.toArray<HTMLElement>('[data-reveal-exp="item"]')
+    items.forEach((item) => {
+      const bubble = item.querySelector<HTMLElement>('.exp-bubble')
+      gsap.set(item, { opacity: 0, x: -30 })
+      if (bubble) gsap.set(bubble, { scale: 0.6, opacity: 0 })
+
+      expTriggers.push(
+        ScrollTrigger.create({
+          trigger: item,
+          start: 'top 82%',
+          once: true,
+          onEnter: () => {
+            gsap.to(item, { opacity: 1, x: 0, duration: 0.7, ease: 'power3.out' })
+            if (bubble)
+              gsap.to(bubble, { scale: 1, opacity: 1, duration: 0.5, ease: 'back.out(1.4)', delay: 0.15 })
+          },
+        })
+      )
+    })
+  }
+
+  document.addEventListener('astro:page-load', initExperience)
+</script>

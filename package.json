@@ -1,0 +1,47 @@
+{
+  "name": "abrahamsm-portfolio",
+  "type": "module",
+  "version": "0.0.1",
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ]
+  },
+  "catalog": {
+    "prettier-plugin-tailwindcss": "latest",
+    "prettier": "latest",
+    "prettier-plugin-astro": "latest",
+    "typescript": "5.9.2",
+    "bun-types": "1.2.20",
+    "bun": "1.2.20"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "lint": "biome check --write .",
+    "lint:check": "biome check .",
+    "typecheck": "astro check",
+    "format": "prettier --write ."
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.9.6",
+    "@astrojs/react": "^4.4.2",
+    "@astrojs/tailwind": "^5.1.5",
+    "@types/node": "^25.0.10",
+    "astro": "^5.16.8",
+    "astro-font": "^1.1.0",
+    "framer-motion": "^12.28.1",
+    "gsap": "^3.14.2",
+    "motion": "^12.28.1",
+    "tailwindcss": "^3.4.19"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.2.4",
+    "prettier": "^3.7.4",
+    "prettier-plugin-astro": "^0.14.1",
+    "prettier-plugin-tailwindcss": "^0.7.2",
+    "typescript": "^5.9.3"
+  }
+}

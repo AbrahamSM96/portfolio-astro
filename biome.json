@@ -1,0 +1,149 @@
+{
+  "$schema": "https://biomejs.dev/schemas/2.2.4/schema.json",
+  "vcs": {
+    "enabled": false,
+    "clientKind": "git",
+    "useIgnoreFile": false
+  },
+  "files": {
+    "includes": [
+      "**",
+      "!.agents",
+      "!.claude",
+      "!.astro",
+      "!**/__mocks__/*.json",
+      "!**/coverage",
+      "!**/.esbuild",
+      "!**/.next",
+      "!**/.open-next",
+      "!**/public",
+      "!**/.sst",
+      "!**/dist",
+      "!**/permutiveLoader.ts",
+      "!**/amzLoader.ts",
+      "!**/injectInlineAd.ts",
+      "!**/gtmSnippet.ts",
+      "!**/sst-env.d.ts",
+      "!**/sst.config.ts",
+      "!**/jest.config.js",
+      "!**/__generated__",
+      "!**/deployFactory.ts",
+      "!**/getNextSettings.js",
+      "!**/.serverless",
+      "!**/generated",
+      "!**/themes/**/*.css",
+      "!**/vendor",
+      "!**/fastlane",
+      "!**/NewRelic.tsx",
+      "!**/ios",
+      "!**/android",
+      "!**/AppQueries.json",
+      "!**/AppQueriesHistory.json",
+      "!**/jwplayer/jwplayer.js",
+      "!**/jwplayer.ts"
+    ]
+  },
+  "formatter": {
+    "enabled": true,
+    "formatWithErrors": false,
+    "attributePosition": "auto",
+    "indentStyle": "space",
+    "indentWidth": 2,
+    "lineWidth": 80,
+    "lineEnding": "lf"
+  },
+  "linter": {
+    "enabled": true,
+    "rules": {
+      "recommended": true,
+      "a11y": {
+        "noSvgWithoutTitle": "off",
+        "useButtonType": "off",
+        "useAltText": "off",
+        "noStaticElementInteractions": "off",
+        "useKeyWithClickEvents": "off"
+      },
+      "correctness": {
+        "noUnknownMediaFeatureName": "off"
+      },
+      "suspicious": {
+        "noImplicitAnyLet": "off",
+        "noArrayIndexKey": "off",
+        "noConstEnum": "off"
+      },
+      "performance": {
+        "noAccumulatingSpread": "warn"
+      },
+      "security": {
+        "noDangerouslySetInnerHtml": "off"
+      },
+      "style": {
+        "useLiteralEnumMembers": "off"
+      },
+      "nursery": {
+        "useSortedClasses": {
+          "fix": "safe",
+          "level": "error",
+          "options": {
+            "attributes": ["class", "classList"],
+            "functions": ["cn", "clsx", "cva", "tw"]
+          }
+        }
+      }
+    }
+  },
+  "javascript": {
+    "formatter": {
+      "arrowParentheses": "always",
+      "bracketSameLine": false,
+      "bracketSpacing": true,
+      "jsxQuoteStyle": "double",
+      "quoteProperties": "asNeeded",
+      "quoteStyle": "single",
+      "semicolons": "always",
+      "trailingCommas": "all"
+    }
+  },
+  "assist": {
+    "enabled": true,
+    "actions": {
+      "source": {
+        "organizeImports": "on"
+      }
+    }
+  },
+  "json": {
+    "formatter": {
+      "trailingCommas": "none"
+    }
+  },
+  "overrides": [
+    {
+      "includes": ["**/*.svelte", "**/*.astro", "**/*.vue"],
+      "formatter": {
+        "enabled": true,
+        "indentStyle": "space",
+        "indentWidth": 2,
+        "lineWidth": 80
+      },
+      "linter": {
+        "rules": {
+          "style": {
+            "useConst": "off",
+            "useImportType": "off"
+          },
+          "correctness": {
+            "noUnusedVariables": "off",
+            "noUnusedImports": "off"
+          }
+        }
+      }
+    },
+    {
+      "includes": ["**/*.css", ".agents/**", ".claude/**"],
+      "linter": {
+        "enabled": false
+      }
+    }
+  ]
+}

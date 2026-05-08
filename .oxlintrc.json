@@ -1,0 +1,48 @@
+{
+  "rules": {
+    "typescript/no-explicit-any": "error",
+    "typescript/no-misused-promises": "error",
+    "typescript/no-floating-promises": "error",
+    "typescript/no-unsafe-assignment": "error"
+  },
+  "plugins": ["react", "unicorn", "typescript", "oxc"],
+  "ignorePatterns": [
+    "**/public/jwplayer.js",
+    "jwplayer.js",
+    ".agents/**",
+    ".claude/**"
+  ],
+  "ignorePattern": [
+    "**/public/jwplayer.js",
+    "jwplayer.js",
+    ".agents/**",
+    ".claude/**"
+  ],
+  "overrides": [
+    {
+      "files": ["**/*.d.{ts,tsx}", "**/graphqlTypes.ts"],
+      "rules": {
+        "typescript/no-explicit-any": "off"
+      }
+    },
+    {
+      "files": ["**/*.spec.{ts,tsx}", "**/*.test.{ts,tsx}"],
+      "plugins": ["react", "unicorn", "typescript", "oxc", "jest"],
+      "env": {
+        "jest": true
+      },
+      "rules": {
+        "typescript/no-explicit-any": "off",
+        "jest/no-conditional-expect": "off",
+        "jest/no-standalone-expect": "off",
+        "jest/expect-expect": "off"
+      }
+    },
+    {
+      "files": ["**/*.stories.{ts,tsx}"],
+      "rules": {
+        "typescript/no-explicit-any": "off"
+      }
+    }
+  ]
+}

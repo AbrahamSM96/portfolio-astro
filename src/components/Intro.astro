@@ -1,0 +1,163 @@
+---
+import { Image } from 'astro:assets';
+import githubIcon from '../assets/icons/github-icon.svg';
+import linkedinIcon from '../assets/icons/linkedin-icon.svg';
+import { type IWeekDays, weekDays } from '../utilities/weekDays';
+import Marquee from './Marquee.astro';
+
+const date = new Date();
+const dayTime = date.getHours();
+const day = date.getDay();
+const dayName = weekDays[day as keyof IWeekDays];
+const greeting =
+  dayTime < 12
+    ? 'Good morning'
+    : dayTime < 18
+      ? 'Good afternoon'
+      : 'Good evening';
+
+const SOCIAL_LINKS = [
+  {
+    name: 'GitHub',
+    url: 'https://github.com/abrahamsm96',
+    icon: githubIcon,
+  },
+  {
+    name: 'LinkedIn',
+    url: 'https://www.linkedin.com/in/abraham-serranom',
+    icon: linkedinIcon,
+  },
+];
+---
+
+<section
+  class="mx-auto flex min-h-[calc(100vh-5rem)] max-w-7xl flex-col items-center justify-center px-6 text-center md:mt-0 md:min-h-screen md:px-4"
+>
+  <div class="flex w-full flex-col gap-6 text-gray-300 md:gap-4">
+    <!-- Greeting + Name -->
+    <div class="flex flex-col items-center gap-1 md:items-start">
+      <h2
+        class="text-xs font-light uppercase tracking-widest text-gray-500 md:text-sm"
+      >
+        {greeting}
+      </h2>
+      <h1 class="animated-name text-4xl font-bold leading-tight md:text-6xl">
+        Hey! I&apos;m Abraham Serrano
+      </h1>
+    </div>
+
+    <!-- Body text: centered on mobile, right-pushed on desktop -->
+    <div class="flex w-full justify-center md:justify-end">
+      <p
+        class="text-pretty text-center text-base leading-relaxed text-gray-300 md:text-left md:text-3xl lg:w-3/4"
+      >
+        Front-end at scale. Five years building the interfaces millions of
+        people use daily — TUDN, Univision, Canal 5, Telehit — from architecture
+        decisions to final pixel. Performance-first, SSR from day one, small
+        team taking on large surfaces.
+      </p>
+    </div>
+
+    <!-- Role + Day -->
+    <div class="flex flex-col items-center md:items-start">
+      <p class="text-lg font-light md:text-4xl">Front End Developer</p>
+      <p class="mt-1 text-sm text-gray-400 md:mt-0 md:text-xl">
+        How&apos;s your <span class="text-purple-400">{dayName}?</span>
+      </p>
+    </div>
+
+    <!-- Social icons -->
+    <div class="flex justify-center gap-4 md:justify-start">
+      {
+        SOCIAL_LINKS.map((link) => (
+          <a
+            href={link.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex items-center justify-center rounded-md p-2 transition-colors"
+          >
+            <figure class="icon-gray h-10 w-10">
+              <Image src={link.icon} alt={`${link.name} Icon`} />
+            </figure>
+          </a>
+        ))
+      }
+    </div>
+  </div>
+
+  <!-- CTAs -->
+  <div class="my-8 flex items-center gap-6">
+    <a
+      href="#projects"
+      class="smooth-scroll rounded-lg bg-purple-600 px-6 py-3 font-medium transition-colors hover:bg-purple-700"
+    >
+      View My Work
+    </a>
+    <a
+      href="#experience"
+      class="flex items-center gap-1.5 text-gray-400 transition-colors hover:text-white"
+    >
+      My Experience
+      <span aria-hidden="true" class="text-sm">↓</span>
+    </a>
+  </div>
+
+  <Marquee />
+</section>
+
+<style>
+  .animated-name {
+    -webkit-text-stroke: 2px #8b5cf6;
+    color: transparent;
+    animation: outline-move 3s ease-in-out infinite;
+  }
+
+  @keyframes outline-move {
+    0% {
+      -webkit-text-stroke-color: #8b5cf6;
+    }
+    50% {
+      -webkit-text-stroke-color: #ec4899;
+    }
+    100% {
+      -webkit-text-stroke-color: #8b5cf6;
+    }
+  }
+
+  .icon-gray {
+    filter: brightness(0) saturate(100%) invert(60%) sepia(0%);
+    opacity: 0.6;
+    transition:
+      filter 0.3s ease,
+      opacity 0.3s ease;
+  }
+
+  .icon-gray:hover {
+    filter: brightness(0) saturate(100%) invert(100%);
+    opacity: 1;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .animated-name {
+      animation: none;
+      -webkit-text-stroke-color: #8b5cf6;
+    }
+  }
+</style>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('a.smooth-scroll').forEach((link) => {
+      link.addEventListener('click', function (e) {
+        const href = this.getAttribute('href')
+        if (href && href.startsWith('#')) {
+          const target = document.querySelector(href)
+          if (target) {
+            e.preventDefault()
+            target.scrollIntoView({ behavior: 'smooth' })
+          }
+        }
+      })
+    })
+  })
+</script>
