@@ -1,25 +1,25 @@
 ---
-import { AstroFont } from 'astro-font';
-import '../styles/global.css';
-import { ClientRouter } from 'astro:transitions';
-import Cursor from '@/components/Cursor';
-import Header from '@/components/Header';
-import InitialTransition from '@/components/InitialTransition';
-import WebGLBackground from '@/components/WebGLBackground';
+import { AstroFont } from 'astro-font'
+import '../styles/global.css'
+import { ClientRouter } from 'astro:transitions'
+import Cursor from '@/components/Cursor'
+import Header from '@/components/Header'
+import InitialTransition from '@/components/InitialTransition'
+import WebGLBackground from '@/components/WebGLBackground'
 
 interface Props {
-  title?: string;
-  description?: string;
+  title?: string
+  description?: string
 }
 
-const SITE_URL = 'https://abrahamsm.com';
+const SITE_URL = 'https://abrahamsm.com'
 
 const {
   title = 'Abraham Serrano — Frontend Developer | React & Next.js',
-  description = 'Frontend Developer with 5+ years building high-performance, SEO-optimized web apps using React and Next.js. Delivered TUDN, Univision, and Hyundai configurators at scale.',
-} = Astro.props;
+  description = 'Frontend Developer with 5+ years building high-performance, SEO-optimized web apps using React and Next.js. Delivered TUDN, Univision, and Hyundai configurators at scale.'
+} = Astro.props
 
-const canonicalURL = new URL(Astro.url.pathname, SITE_URL).href;
+const canonicalURL = new URL(Astro.url.pathname, SITE_URL).href
 
 const jsonLd = JSON.stringify({
   '@context': 'https://schema.org',
@@ -31,7 +31,7 @@ const jsonLd = JSON.stringify({
   image: `${SITE_URL}/og-image.png`,
   sameAs: [
     'https://github.com/AbrahamSM96',
-    'https://www.linkedin.com/in/abraham-serranom',
+    'https://www.linkedin.com/in/abraham-serranom'
   ],
   knowsAbout: [
     'React',
@@ -42,13 +42,13 @@ const jsonLd = JSON.stringify({
     'Tailwind CSS',
     'SSR',
     'Web Performance',
-    'SEO',
+    'SEO'
   ],
   alumniOf: {
     '@type': 'CollegeOrUniversity',
-    name: 'Universidad Autónoma del Estado de Hidalgo',
-  },
-});
+    name: 'Universidad Autónoma del Estado de Hidalgo'
+  }
+})
 ---
 
 <!doctype html>
@@ -58,7 +58,7 @@ const jsonLd = JSON.stringify({
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-
+    <meta content="#0A0B0B" name="theme-color" />
     <!-- Primary meta -->
     <title>{title}</title>
     <meta name="description" content={description} />
