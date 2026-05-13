@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://abrahamsm.com/sitemap.xml
+Sitemap: https://abrahamsm.com/sitemap-index.xml

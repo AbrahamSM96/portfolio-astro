@@ -15,8 +15,8 @@ interface Props {
 const SITE_URL = 'https://abrahamsm.com'
 
 const {
-  title = 'Abraham Serrano — Frontend Developer | React & Next.js',
-  description = 'Frontend Developer with 5+ years building high-performance, SEO-optimized web apps using React and Next.js. Delivered TUDN, Univision, and Hyundai configurators at scale.'
+  title = 'Abraham Serrano Montiel | Frontend Developer',
+  description = 'Frontend Developer with 5+ years building high-traffic web apps. Delivered TUDN, Univision, Canal 5, and Hyundai configurators using React, Next.js, SSR, and GraphQL.'
 } = Astro.props
 
 const canonicalURL = new URL(Astro.url.pathname, SITE_URL).href
@@ -28,7 +28,7 @@ const jsonLd = JSON.stringify({
   jobTitle: 'Frontend Developer',
   url: SITE_URL,
   email: 'abrahamserrano96@hotmail.com',
-  image: `${SITE_URL}/og-image.png`,
+  image: `${SITE_URL}/asmLogo-big.jpg`,
   sameAs: [
     'https://github.com/AbrahamSM96',
     'https://www.linkedin.com/in/abraham-serranom'
@@ -75,16 +75,16 @@ const jsonLd = JSON.stringify({
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalURL} />
-    <meta property="og:image" content={`${SITE_URL}/og-image.png`} />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
+    <meta property="og:image" content={`${SITE_URL}/asmLogo-big.jpg`} />
+    <meta property="og:image:width" content="1254" />
+    <meta property="og:image:height" content="1254" />
     <meta property="og:locale" content="en_US" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={`${SITE_URL}/og-image.png`} />
+    <meta name="twitter:image" content={`${SITE_URL}/asmLogo-big.jpg`} />
 
     <!-- Structured data -->
     <script is:inline type="application/ld+json" set:html={jsonLd} />
