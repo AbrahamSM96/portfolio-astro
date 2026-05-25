@@ -33,6 +33,14 @@ const jsonLd = JSON.stringify({
     'https://github.com/AbrahamSM96',
     'https://www.linkedin.com/in/abraham-serranom'
   ],
+  homeLocation: {
+    '@type': 'Place',
+    name: 'Pachuca, Hidalgo, Mexico'
+  },
+  worksFor: {
+    '@type': 'Organization',
+    name: 'TelevisaUnivision'
+  },
   knowsAbout: [
     'React',
     'Next.js',
@@ -46,7 +54,13 @@ const jsonLd = JSON.stringify({
   ],
   alumniOf: {
     '@type': 'CollegeOrUniversity',
-    name: 'Universidad Autónoma del Estado de Hidalgo'
+    name: 'Universidad Autónoma del Estado de Hidalgo',
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Pachuca',
+      addressRegion: 'Hidalgo',
+      addressCountry: 'MX'
+    }
   }
 })
 ---
