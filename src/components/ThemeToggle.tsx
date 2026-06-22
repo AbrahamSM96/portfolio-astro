@@ -2,9 +2,16 @@ import { useEffect, useMemo, useState } from 'react';
 
 type ThemeMode = 'light' | 'dark';
 
+const THEME_COLORS: Record<ThemeMode, string> = {
+  dark: '#0A0B0B',
+  light: '#ffffff',
+};
+
 function applyTheme(mode: ThemeMode) {
   document.documentElement.dataset.theme = mode;
   document.documentElement.classList.toggle('dark', mode === 'dark');
+  const meta = document.getElementById('theme-color-meta');
+  if (meta) meta.setAttribute('content', THEME_COLORS[mode]);
 }
 
 export default function ThemeToggle() {
@@ -80,7 +87,7 @@ export default function ThemeToggle() {
       type="button"
       onClick={() => setMode(isDark ? 'light' : 'dark')}
       className="relative flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white shadow-sm transition-colors hover:bg-white/10"
-      aria-label="Toggle theme"
+      aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
     >
       <span
         className="absolute inset-0 flex items-center justify-center transition-all duration-300"

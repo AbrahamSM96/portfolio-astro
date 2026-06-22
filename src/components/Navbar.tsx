@@ -120,12 +120,12 @@ export default function Navbar() {
                     href={item.href}
                   >
                     <span className="relative inline-flex overflow-hidden">
-                      <div className="group-hover:-translate-y-[150%] translate-y-0 skew-y-0 transform-gpu transition-transform duration-500 group-hover:skew-y-12">
+                      <span className="group-hover:-translate-y-[150%] translate-y-0 skew-y-0 transform-gpu transition-transform duration-500 group-hover:skew-y-12">
                         {item.name}
-                      </div>
-                      <div className="absolute translate-y-[150%] skew-y-12 transform-gpu transition-transform duration-500 group-hover:translate-y-0 group-hover:skew-y-0">
+                      </span>
+                      <span className="absolute translate-y-[150%] skew-y-12 transform-gpu transition-transform duration-500 group-hover:translate-y-0 group-hover:skew-y-0">
                         {item.name}
-                      </div>
+                      </span>
                     </span>
                   </a>
                 </li>
